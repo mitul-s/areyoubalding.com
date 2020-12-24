@@ -4,6 +4,7 @@ import Shell from "@/components/Shell"
 import CheckButton from "@/components/CheckButton";
 import { useRouter } from "next/router";
 
+import NextLink from "next/link"
 import { useQuiz } from "@/lib/quiz"
 import questions from "@/lib/data";
 
@@ -20,19 +21,14 @@ export default function Home() {
   return (
     <Shell>
         <Center flexDirection="column" h="80vh">
-          <Heading>{questions[currentQuestion].question}</Heading>
-          <HStack space={3}>
-            {questions[currentQuestion].answers.map((x) => {
-              return (
-                <Button colorScheme="cyan" onClick={() => handleClick(x.score)}>
-                  {x.answer}
-                </Button>
-              );
-            })}
-          </HStack>
+        <Heading>
+          Start quiz
+        </Heading>
+        <NextLink href="/quiz">
+          <Button>Start</Button>
+        </NextLink>
         </Center>
       {score}
-      {score > 10 ? <h1>Balding</h1> : <h2>Not balding</h2>}
     </Shell>
   );
 }

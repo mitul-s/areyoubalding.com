@@ -4,15 +4,22 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "#0D1013",
-        color: "whiteAlpha.900",
+        bg: "cream",
+        color: "black",
       },
     },
   },
+  fonts: {
+    heading:`'HK Grotesk', sans-serif`,
+    body: `"Rubik", sans-serif`,
+  },
   colors: {
-    brand: {
-      900: "#fff",
-    },
+    black: "#0D1013",
+    cream: "#FAFAED",
+    cherry: "#FF4E42",
+    burgundy: "#832626",
+    royal: "#1820EF",
+    ramen: "#FFC024"
   },
 });
 

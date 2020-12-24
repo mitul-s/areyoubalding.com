@@ -1,19 +1,25 @@
 import React, { useEffect } from "react";
 
 import Shell from "@/components/Shell"
-import { Center, Spinner } from "@chakra-ui/react"
+import { Center, Spinner, Button } from "@chakra-ui/react"
 import { useQuiz } from "@/lib/quiz";
+
+import NextLink from "next/link";
 
 import { useRouter } from "next/router";
 
 
-const ResultsContainer = ({ children }) => (
-    <Shell>
-        <Center h="100vh">
-            {children}
-        </Center>
-    </Shell>
-)
+const ResultsContainer = ({ children }) => {
+    const { setEnd } = useQuiz();
+  return (<Shell>
+    <Center h="100vh" direction="column">
+      {children}
+      <NextLink href="/">
+        <Button onClick={() => setEnd(false)}>Return to start</Button>
+      </NextLink>
+    </Center>
+  </Shell>)
+};
 
 const results = () => {
     const router = useRouter();
