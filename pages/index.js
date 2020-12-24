@@ -11,7 +11,7 @@ import questions from "@/lib/data";
 export default function Home() {
 
   const router = useRouter();
-  const { handleClick, end, score, currentQuestion } = useQuiz();
+  const {  end } = useQuiz();
 
 
   if(end) {
@@ -20,15 +20,15 @@ export default function Home() {
 
   return (
     <Shell>
-        <Center flexDirection="column" h="80vh">
-        <Heading>
-          Start quiz
-        </Heading>
+      <Center flexDirection="column" h="100vh">
+        <Stack spacing={8} textAlign="center" mb={8}>
+          <Heading fontSize="6xl" color="royal">Are you balding?</Heading>
+          <Text fontSize="2xl">Take this short interactive quiz to find out if you're losing all your hair!</Text>
+        </Stack>
         <NextLink href="/quiz">
-          <Button>Start</Button>
+          <Button color="cream" bg="cherry">Start</Button>
         </NextLink>
-        </Center>
-      {score}
+      </Center>
     </Shell>
   );
 }
