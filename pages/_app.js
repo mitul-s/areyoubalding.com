@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { Global, css } from "@emotion/react";
+import { AnimatePresence } from "framer-motion"
 import { QuizProvider } from "@/lib/quiz";
 import theme from "@/styles/theme.js";
 
@@ -31,11 +32,13 @@ function App({ Component, pageProps }) {
 
 
   return (
-    <ChakraProvider theme={theme}>
-      <QuizProvider>
-        <Component {...pageProps} />
-      </QuizProvider>
-    </ChakraProvider>
+    <AnimatePresence exitBeforeEnter>
+      <ChakraProvider theme={theme}>
+          <QuizProvider>
+              <Component {...pageProps} />
+          </QuizProvider>
+      </ChakraProvider>
+    </AnimatePresence>
   );
 }
 
