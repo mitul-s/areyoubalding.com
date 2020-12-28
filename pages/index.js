@@ -15,33 +15,11 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/animations"
+
 
 const MotionBox = motion.custom(Box);
 
-const easing = [.6, -0.05, 0.01, 0.99];
-
-const fadeInUp = {
-  initial: {
-    y: 60,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: easing,
-    }
-  }
-}
-
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.4,
-    }
-  }
-}
 
 export default function Home() {
   const router = useRouter();
@@ -53,27 +31,24 @@ export default function Home() {
 
   return (
     <Shell>
-      <Center flexDirection="column" h="100vh">
+      <Center flexDirection="column" flex="1">
         <MotionBox variants={fadeInUp} textAlign="center">
-          <Stack spacing={8} mb={8}>
-            <MotionBox
-              drag="x"
-              dragConstraints={{ left: -100, right: 100 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Heading fontSize="6xl" color="royal">
-                Are you balding?
+          <Stack spacing={12}>
+            <Heading fontSize="3xl" textTransform="uppercase" color="royal">
+              Are you
+            </Heading>
+            <Box>
+              <Heading textTransform="uppercase" fontSize="120px" color="royal">
+                Balding?
               </Heading>
-            </MotionBox>
+            </Box>
             <Text fontSize="2xl">
               Answer a few questions about yourself to find out if a future
               without hair is coming for you.
             </Text>
           </Stack>
-
           <NextLink href="/quiz">
-            <Button color="cream" bg="cherry">
+            <Button color="cream" bg="cherry" mt={10}>
               Start
             </Button>
           </NextLink>

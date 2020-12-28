@@ -10,6 +10,7 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css"
           />
+          <link href="http://fonts.cdnfonts.com/css/dorado-headline" rel="stylesheet" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
             <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet" /> 
           <link

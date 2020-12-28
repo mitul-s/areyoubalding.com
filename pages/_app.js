@@ -3,6 +3,7 @@ import { Global, css } from "@emotion/react";
 import { AnimatePresence } from "framer-motion"
 import { QuizProvider } from "@/lib/quiz";
 import theme from "@/styles/theme.js";
+import Head from "next/head"
 
 function App({ Component, pageProps }) {
 
@@ -12,7 +13,6 @@ function App({ Component, pageProps }) {
         <Head>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
-        <CSSReset />
         <Global
           styles={css`
             html {
@@ -32,13 +32,13 @@ function App({ Component, pageProps }) {
 
 
   return (
-    <AnimatePresence exitBeforeEnter>
-      <ChakraProvider theme={theme}>
-          <QuizProvider>
-              <Component {...pageProps} />
-          </QuizProvider>
-      </ChakraProvider>
-    </AnimatePresence>
+    <ChakraProvider theme={theme} exitBeforeEnter>
+      <QuizProvider>
+        <GlobalStyle>
+          <Component {...pageProps} />
+        </GlobalStyle>
+      </QuizProvider>
+    </ChakraProvider>
   );
 }
 

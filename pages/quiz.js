@@ -27,7 +27,7 @@ export default function quiz() {
 
   return (
     <Shell>
-      <Center flexDirection="column" h="80vh">
+      <Center flexDirection="column" flex="1">
         <Heading>{questions[currentQuestion].question}</Heading>
         <Text>{questions[currentQuestion].description}</Text>
         <HStack space={3}>

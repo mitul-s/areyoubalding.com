@@ -10,9 +10,9 @@ import { useRouter } from "next/router";
 
 
 const ResultsContainer = ({ children }) => {
-    const { resetQuiz } = useQuiz();
+  const { resetQuiz } = useQuiz();
   return (<Shell>
-    <Center h="100vh">
+    <Center flex="1">
       {children}
       <NextLink href="/">
         <Button onClick={() => resetQuiz()}>Return to start</Button>
