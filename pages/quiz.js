@@ -19,7 +19,7 @@ import questions from "@/lib/data";
 
 export default function quiz() {
   const router = useRouter();
-  const { handleClick, end, score, currentQuestion } = useQuiz();
+  const { handleClick, end, score, currentQuestion, totalQuestions } = useQuiz();
 
   if (end) {
     router.push("/results");
@@ -27,6 +27,7 @@ export default function quiz() {
 
   return (
     <Shell>
+    <Box transition="350ms all" sx={{  borderRadius: "10px", width: currentQuestion/totalQuestions, height: "20px", bg: "cherry"}}/>
       <Center flexDirection="column" flex="1">
         <Heading>{questions[currentQuestion].question}</Heading>
         <Text>{questions[currentQuestion].description}</Text>

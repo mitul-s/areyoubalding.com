@@ -33,25 +33,40 @@ export default function Home() {
     <Shell>
       <Center flexDirection="column" flex="1">
         <MotionBox variants={fadeInUp} textAlign="center">
-          <Stack spacing={12}>
-            <Heading fontSize="3xl" textTransform="uppercase" color="royal">
-              Are you
-            </Heading>
-            <Box>
-              <Heading textTransform="uppercase" fontSize="120px" color="royal">
+          <Stack spacing={16} w="879px" alignItems="center">
+            <Stack spacing={12}>
+              <Heading
+                fontSize="42px"
+                fontWeight="bold"
+                fontStyle="normal"
+                letterSpacing="-1.37308px"
+                textTransform="uppercase"
+                color="royal"
+                lineHeight="52px"
+              >
+                Are you
+              </Heading>
+              <Heading
+                textTransform="uppercase"
+                color="royal"
+                fontWeight="900"
+                fontSize="144px"
+                // fontSize="6xl"
+                letterSpacing="-2.35385px"
+              >
                 Balding?
               </Heading>
-            </Box>
+            </Stack>
             <Text fontSize="2xl">
               Answer a few questions about yourself to find out if a future
               without hair is coming for you.
             </Text>
+            <NextLink href="/quiz">
+              <Button color="cream" bg="cherry" fontSize="2xl" textTransform="uppercase" borderRadius={0} width="max-content" px={20} py={8}>
+                Start
+              </Button>
+            </NextLink>
           </Stack>
-          <NextLink href="/quiz">
-            <Button color="cream" bg="cherry" mt={10}>
-              Start
-            </Button>
-          </NextLink>
         </MotionBox>
       </Center>
     </Shell>

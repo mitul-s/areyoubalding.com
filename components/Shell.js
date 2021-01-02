@@ -1,31 +1,68 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { Box, Flex, IconButton, Text } from "@chakra-ui/react"
 import { motion } from "framer-motion";
+import { Share } from "phosphor-react";
 
 const MotionBox = motion.custom(Box);
 
 const Footer = () => { 
   return (
-    <Box h="10vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      HELLO
-    </Box>
-  )
+    <Flex
+      h="5vh"
+      justifyContent="space-between"
+      alignItems="center"
+      fontSize="xs"
+      py={10}
+    >
+      <Text>Disclaimer</Text>
+      <Text>Built by Mitul Shah 👋</Text>
+    </Flex>
+  );
+}
+
+const Header = () => { 
+  return (
+    <Flex
+      h="5vh"
+      justifyContent="flex-end"
+      alignItems="center"
+      py={10}
+      // border="1px solid black"
+    >
+      <IconButton
+        borderRadius="full"
+        bg="ramen"
+        color="cream"
+        size="sm"
+        icon={<Share weight="bold" />}
+      />
+    </Flex>
+  );
 }
 
 const Shell = ({ children }) => {
+
     return (
-      <MotionBox exit={{ opacity: 0 }} initial="initial" animate="animate">
+      <MotionBox
+        exit={{ opacity: 0 }}
+        initial="initial"
+        animate="animate"
+        p={8}
+        height="100vh"
+      >
         <Flex
           as="main"
           m="0 auto"
           direction="column"
           px={8}
-          maxW="1240px"
+          // maxW="1400px"
           height="100%"
           minHeight="100%"
-          height="100vh"
+          border="5px solid"
+          borderColor="royal"
         >
+          <Header />
           {children}
-        <Footer />
+          <Footer />
         </Flex>
       </MotionBox>
     );
