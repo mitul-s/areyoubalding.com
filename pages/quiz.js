@@ -9,6 +9,7 @@ import {
   ListItem,
   Button,
   Center,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import Shell from "@/components/Shell";
 import CheckButton from "@/components/CheckButton";
@@ -27,26 +28,44 @@ export default function quiz() {
 
   return (
     <Shell>
-    <Box transition="350ms all" sx={{  borderRadius: "10px", width: currentQuestion/totalQuestions, height: "20px", bg: "cherry"}}/>
+      <Box
+        transition="350ms all"
+        sx={{
+          // borderRadius: "10px",
+          width: currentQuestion / totalQuestions,
+          height: "20px",
+          bg: "ramen",
+        }}
+      />
       <Center flexDirection="column" flex="1">
-        <Heading>{questions[currentQuestion].question}</Heading>
-        <Text>{questions[currentQuestion].description}</Text>
-        <HStack space={3}>
+        <Stack spacing={8} textAlign="center">
+          <Heading fontSize="6xl" color="cherry">
+            {questions[currentQuestion].question}
+          </Heading>
+          <Text>{questions[currentQuestion].description}</Text>
+        </Stack>
+        <SimpleGrid spacing={3} columns={2} rows={2}>
           {questions[currentQuestion].answers.map((x) => {
             return (
-              <Button
-                bg="cherry"
-                color="cream"
-                borderRadius="3xl"
-                onClick={() => handleClick(x.score)}
-              >
+              <SelectButton onClick={() => handleClick(x.score)}>
                 {x.answer}
-              </Button>
+              </SelectButton>
             );
           })}
-        </HStack>
+        </SimpleGrid>
       </Center>
       {score}
     </Shell>
   );
+}
+
+
+
+
+const SelectButton = ({ children, ...rest }) => {
+  return (
+    <Center bg="cream" border="2px solid" borderColor="cherry" w="md" py={8} fontSize="3xl" sx={{ transition: "350ms all" }} _hover={{ transform: "translateY(-4px)", bg: "burgundy", color: "cream", borderColor: "burgundy" }}{...rest}>
+      {children}
+    </Center>
+  )
 }

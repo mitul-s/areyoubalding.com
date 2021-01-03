@@ -1,4 +1,5 @@
-import { Box, Flex, IconButton, Text } from "@chakra-ui/react"
+import { useQuiz } from "@/lib/quiz";
+import { Box, Flex, IconButton, Text, Link } from "@chakra-ui/react"
 import { motion } from "framer-motion";
 import { Share } from "phosphor-react";
 
@@ -14,7 +15,9 @@ const Footer = () => {
       py={10}
     >
       <Text>Disclaimer</Text>
-      <Text>Built by Mitul Shah 👋</Text>
+      <Link href="https://twitter.com/typicalmitul" isExternal>
+        <Text>Built by Mitul Shah 👋</Text>
+      </Link>
     </Flex>
   );
 }
@@ -40,6 +43,8 @@ const Header = () => {
 }
 
 const Shell = ({ children }) => {
+
+    const { currentQuestion, totalQuestions } = useQuiz();
 
     return (
       <MotionBox
