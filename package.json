@@ -11,7 +11,11 @@
     "@chakra-ui/react": "^1.1.2",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+<<<<<<< HEAD
     "framer-motion": "^2.9.5",
+=======
+    "framer-motion": "^3.1.4",
+>>>>>>> 6300146b9d672095f72c170305e4b72c7862c4f6
     "next": "10.0.1",
     "phosphor-react": "^1.1.2",
     "react": "17.0.1",
