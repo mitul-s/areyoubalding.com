@@ -33,8 +33,8 @@ export default function Home() {
     <Shell>
       <Center flexDirection="column" flex="1">
         <MotionBox variants={fadeInUp} textAlign="center">
-          <Stack spacing={16} w="879px" alignItems="center">
-            <Stack spacing={12}>
+          <Stack spacing={8} w="879px" alignItems="center">
+            <Box>
               <Heading
                 fontSize="42px"
                 fontWeight="bold"
@@ -56,7 +56,7 @@ export default function Home() {
               >
                 Balding?
               </Heading>
-            </Stack>
+            </Box>
             <Text fontSize="2xl">
               Answer a few questions about yourself to find out if a future
               without hair is coming for you.
