@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 
 import Shell from "@/components/Shell"
-import { Center, Image, Stack, Flex, Box, Spinner, Button, Heading, Text, HStack, SimpleGrid } from "@chakra-ui/react"
+import { Center, Image, Stack, Flex, IconButton, Box, Spinner, Button, Heading, Text, HStack, SimpleGrid } from "@chakra-ui/react"
+import { ArrowDown } from "phosphor-react";
 import { useQuiz } from "@/lib/quiz";
 
 import NextLink from "next/link";
@@ -31,14 +32,51 @@ const ProductCard = ({ title }) => (
 );
 
 
+const AnswerHero = ({ executeScroll }) => (
+  <Center border="5px solid" borderColor="royal">
+    <Center
+      h="calc(100vh - (4rem + 10px))"
+      flexDirection="column"
+      w="1000px"
+      textAlign="center"
+    >
+      <Center w="100%" h="100%" mt={"5vh"} flexDirection="column">
+        <Heading
+          color="royal"
+          fontFamily="Inter"
+          fontWeight="900"
+          fontSize="120px"
+          lineHeight="125px"
+          mb={12}
+        >
+          You just might be balding...
+        </Heading>
+        <Text fontSize="3xl">
+          but there’s still hope! You can take the right steps today to save as
+          much of your hair as possible. Keep scrolling to learn more.
+        </Text>
+      </Center>
+      <Center h="10vh">
+        <IconButton
+          onClick={executeScroll}
+          bg="ramen"
+          color="cream"
+          rounded="full"
+          size="lg"
+          icon={<ArrowDown weight="bold" />}
+        />
+      </Center>
+    </Center>
+  </Center>
+);
 
-// #1A8738 
 
 
 const ResultsContainer = ({ children }) => {
   const { resetQuiz } = useQuiz();
   return (
     <Box
+      display="flex"
       flexDirection="column"
       justifyContent="center"
       m="0 auto"
@@ -48,9 +86,11 @@ const ResultsContainer = ({ children }) => {
       overflow="hidden"
     >
       {children}
-      <NextLink href="/">
-        <Button onClick={() => resetQuiz()}>Return to start</Button>
-      </NextLink>
+      <Flex alignItems="center" justifyContent="center" h="10vh">
+        <NextLink href="/">
+          <Button bg="ramen" color="cream" onClick={() => resetQuiz()}>Return to start</Button>
+        </NextLink>
+      </Flex>
     </Box>
   );
 };
@@ -58,13 +98,18 @@ const ResultsContainer = ({ children }) => {
 const results = () => {
     const router = useRouter();
     const { score } = useQuiz();
+    const infoRef = useRef(null);
+    const executeScroll = () => infoRef.current.scrollIntoView(); 
     
-    if(score > 0 && score <= 6) {
+    if(score >= 0 && score <= 6) {
         return (
-            <ResultsContainer>
-                You might not be balding..
-            </ResultsContainer>
-        )
+          <ResultsContainer>
+            <AnswerHero executeScroll={executeScroll} />
+            <Box ref={infoRef}>
+              hello
+            </Box>
+          </ResultsContainer>
+        );
     }
 
     if(score >= 6 && score <= 12) {
@@ -91,8 +136,7 @@ const results = () => {
       );
     }
 
-    const infoRef = useRef(null);
-    const executeScroll = () => infoRef.current.scrollIntoView(); 
+    
 
     // useEffect(() => {
     //     if (score === 0) {
@@ -101,36 +145,13 @@ const results = () => {
     // }, [score])
     
     // return <ResultsContainer><Spinner/></ResultsContainer>
+
+
+    
+
     return (
       <ResultsContainer>
-        <Center border="5px solid" borderColor="royal">
-          <Center
-            h="calc(100vh - (4rem + 10px))"
-            flexDirection="column"
-            w="1250px"
-            textAlign="center"
-          >
-            <Box>
-              <Heading
-                color="royal"
-                fontFamily="Inter"
-                fontWeight="900"
-                fontSize="120px"
-                lineHeight="125px"
-                mb={4}
-              >
-                You just might be balding...
-              </Heading>
-              <Text>
-                but there’s still hope! You can take the right steps today to
-                save as much of your hair as possible.
-              </Text>
-            </Box>
-            <Button onClick={executeScroll} bg="ramen" color="cream">
-              See more
-            </Button>
-          </Center>
-        </Center>
+      <AnswerHero executeScroll={executeScroll} />
         <Box ref={infoRef} minH="100vh" w="1250px" m="0 auto" py={24}>
           <Stack spacing={12}>
             <Box

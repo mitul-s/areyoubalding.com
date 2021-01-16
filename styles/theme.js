@@ -10,7 +10,7 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading:`'HK Grotesk', sans-serif`,
+    heading: `'HK Grotesk', sans-serif`,
     body: `"Rubik", sans-serif`,
   },
   colors: {
@@ -18,8 +18,10 @@ const theme = extendTheme({
     cream: "#FAFAED",
     cherry: "#FF4E42",
     burgundy: "#832626",
-    royal: "#1820EF",
-    ramen: "#FFC024"
+    // royal: "#1820EF",
+    royal: "#0D13BF",
+    ramen: "#FFC024",
+    lettuce: "#1A8738",
   },
 });
 

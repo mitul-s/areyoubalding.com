@@ -12,6 +12,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import Shell from "@/components/Shell";
+import ResultsLoader from "@/components/ResultsLoader";
 import CheckButton from "@/components/CheckButton";
 import { useRouter } from "next/router";
 
@@ -23,7 +24,12 @@ export default function quiz() {
   const { handleClick, end, score, currentQuestion, totalQuestions } = useQuiz();
 
   if (end) {
-    router.push("/results");
+    setTimeout(function () {
+      router.push("/results");  
+    }, 3000);
+    
+    return <ResultsLoader />
+
   }
 
   return (

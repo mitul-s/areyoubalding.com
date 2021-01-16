@@ -58,11 +58,21 @@ export default function Home() {
               </Heading>
             </Box>
             <Text fontSize="2xl">
-              Answer a few questions about yourself to find out if a future
-              without hair is coming for you.
+              Answer a few questions about yourself through this short
+              interactive quiz to find out if a future without hair is coming
+              for you.
             </Text>
             <NextLink href="/quiz">
-              <Button color="cream" bg="cherry" fontSize="2xl" textTransform="uppercase" borderRadius={0} width="max-content" px={20} py={8}>
+              <Button
+                color="cream"
+                bg="cherry"
+                fontSize="2xl"
+                textTransform="uppercase"
+                borderRadius={0}
+                width="max-content"
+                px={20}
+                py={8}
+              >
                 Start
               </Button>
             </NextLink>

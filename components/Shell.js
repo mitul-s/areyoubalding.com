@@ -3,6 +3,8 @@ import { Box, Flex, IconButton, Text, Link } from "@chakra-ui/react"
 import { motion } from "framer-motion";
 import { Share } from "phosphor-react";
 
+import border from ".././styles/border.module.scss";
+
 const MotionBox = motion.custom(Box);
 
 const Footer = () => { 
@@ -13,6 +15,7 @@ const Footer = () => {
       alignItems="center"
       fontSize="xs"
       py={10}
+      w="full"
     >
       <Text>Disclaimer</Text>
       <Link href="https://twitter.com/typicalmitul" isExternal>
@@ -29,6 +32,7 @@ const Header = () => {
       justifyContent="flex-end"
       alignItems="center"
       py={10}
+      w="full"
       // border="1px solid black"
     >
       <IconButton
@@ -42,7 +46,7 @@ const Header = () => {
   );
 }
 
-const Shell = ({ children }) => {
+const Shell = ({ loader, children }) => {
 
     const { currentQuestion, totalQuestions } = useQuiz();
 
@@ -64,6 +68,7 @@ const Shell = ({ children }) => {
           minHeight="100%"
           border="5px solid"
           borderColor="royal"
+          className={loader ? border.gradientBorder : ""}
         >
           <Header />
           {children}
