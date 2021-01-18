@@ -7,7 +7,7 @@ const ResultsLoader = () => {
       <Center flex="1" w="full" textAlign="center">
         <Box>
           <Spinner size="xl" />
-          <Heading>Loading..</Heading>
+          <Heading>Counting your hairs...</Heading>
         </Box>
       </Center>
     </Shell>

@@ -48,8 +48,7 @@ const Header = () => {
 
 const Shell = ({ loader, children }) => {
 
-    const { currentQuestion, totalQuestions } = useQuiz();
-
+    const { currentQuestion, totalQuestions } = useQuiz();    
     return (
       <MotionBox
         exit={{ opacity: 0 }}
@@ -62,7 +61,6 @@ const Shell = ({ loader, children }) => {
           as="main"
           m="0 auto"
           direction="column"
-          px={8}
           // maxW="1400px"
           height="100%"
           minHeight="100%"
@@ -70,9 +68,19 @@ const Shell = ({ loader, children }) => {
           borderColor="royal"
           className={loader ? border.gradientBorder : ""}
         >
-          <Header />
-          {children}
-          <Footer />
+          <Box
+            transition="350ms ease-in-out"
+            sx={{
+              width: currentQuestion / totalQuestions,
+              height: "20px",
+              bg: "ramen",
+            }}
+          />
+          <Flex px={8} mt="-20px" height="100%" flexDirection="column">
+            <Header />
+            {children}
+            <Footer />
+          </Flex>
         </Flex>
       </MotionBox>
     );

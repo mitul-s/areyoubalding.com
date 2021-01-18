@@ -36,13 +36,18 @@ export default function Home() {
           <Stack spacing={8} w="879px" alignItems="center">
             <Box>
               <Heading
+                sx={{
+                  
+                }}
                 fontSize="42px"
+                fontSize="2vw"
+                // fontSize="7vw"
                 fontWeight="bold"
                 fontStyle="normal"
                 letterSpacing="-1.37308px"
                 textTransform="uppercase"
                 color="royal"
-                lineHeight="52px"
+                lineHeight="8px"
               >
                 Are you
               </Heading>
@@ -51,6 +56,7 @@ export default function Home() {
                 color="royal"
                 fontWeight="900"
                 fontSize="144px"
+                fontSize="10vw"
                 // fontSize="6xl"
                 letterSpacing="-2.35385px"
               >

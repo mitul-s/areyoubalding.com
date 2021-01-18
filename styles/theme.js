@@ -19,7 +19,7 @@ const theme = extendTheme({
     cherry: "#FF4E42",
     burgundy: "#832626",
     // royal: "#1820EF",
-    royal: "#0D13BF",
+    royal: "#2127D9",
     ramen: "#FFC024",
     lettuce: "#1A8738",
   },

@@ -6,8 +6,8 @@ const ResultsLoader = () => {
     <Shell loader={true}>
       <Center flex="1" w="full" textAlign="center">
         <Box>
-          <Spinner size="xl" />
-          <Heading>Loading..</Heading>
+          <Spinner size="xl" mb={4} />
+          <Heading>Counting your hairs...</Heading>
         </Box>
       </Center>
     </Shell>

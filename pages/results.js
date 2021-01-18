@@ -101,7 +101,7 @@ const results = () => {
     const infoRef = useRef(null);
     const executeScroll = () => infoRef.current.scrollIntoView(); 
     
-    if(score >= 0 && score <= 6) {
+    if(score > 0 && score <= 6) {
         return (
           <ResultsContainer>
             <AnswerHero executeScroll={executeScroll} />

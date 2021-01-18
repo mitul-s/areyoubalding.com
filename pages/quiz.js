@@ -34,26 +34,17 @@ export default function quiz() {
 
   return (
     <Shell>
-      <Box
-        transition="350ms all"
-        sx={{
-          // borderRadius: "10px",
-          width: currentQuestion / totalQuestions,
-          height: "20px",
-          bg: "ramen",
-        }}
-      />
       <Center flexDirection="column" flex="1">
-        <Stack spacing={8} textAlign="center">
-          <Heading fontSize="6xl" color="cherry">
+        <Stack mb={8} spacing={4} textAlign="center">
+          <Heading fontSize="6xl" color="cherry" w="700px">
             {questions[currentQuestion].question}
           </Heading>
-          <Text>{questions[currentQuestion].description}</Text>
+          <Text fontSize="xl">{questions[currentQuestion].description}</Text>
         </Stack>
         <SimpleGrid spacing={3} columns={2} rows={2}>
           {questions[currentQuestion].answers.map((x) => {
             return (
-              <SelectButton onClick={() => handleClick(x.score)}>
+              <SelectButton key={x} onClick={() => handleClick(x.score)}>
                 {x.answer}
               </SelectButton>
             );
