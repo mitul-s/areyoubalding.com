@@ -8,28 +8,8 @@ import { useQuiz } from "@/lib/quiz";
 import NextLink from "next/link";
 
 import { useRouter } from "next/router";
-
-const ProductCard = ({ title }) => (
-  <Stack bg="royal" color="cream" p={8} borderRadius="8px" spacing={4}>
-    <Box>
-      <Heading>{title}</Heading>
-      <Heading fontSize="3xs" color="whiteAlpha.800" fontWeight="500">
-        RX Certified
-      </Heading>
-    </Box>
-    <Text fontSize="lg">
-      This FDA approved daily tablet increases volume and health of hair in 3 to
-      6 months. It prevents testosterone from breaking down into DHT, a hormone
-      that damages hair follicles.
-    </Text>
-    <Box boxSize="xs" mx="auto !important">
-      <Image src="/media/imgs/gummies.webp" />
-    </Box>
-    <Button color="royal" bg="cream">
-      Get your pack
-    </Button>
-  </Stack>
-);
+import InformationCard from "@/components/results/InformationCard";
+import ProductCard from "@/components/results/ProductCard";
 
 
 const AnswerHero = ({ executeScroll }) => (
@@ -88,7 +68,9 @@ const ResultsContainer = ({ children }) => {
       {children}
       <Flex alignItems="center" justifyContent="center" h="10vh">
         <NextLink href="/">
-          <Button bg="ramen" color="cream" onClick={() => resetQuiz()}>Return to start</Button>
+          <Button bg="ramen" color="cream" onClick={() => resetQuiz()}>
+            Return to start
+          </Button>
         </NextLink>
       </Flex>
     </Box>
@@ -151,8 +133,8 @@ const results = () => {
 
     return (
       <ResultsContainer>
-      <AnswerHero executeScroll={executeScroll} />
-        <Box ref={infoRef} minH="100vh" w="1250px" m="0 auto" py={24}>
+        <AnswerHero executeScroll={executeScroll} />
+        <Box ref={infoRef} minH="100vh" m="0 auto" py={24}>
           <Stack spacing={12}>
             <Box
               border="5px solid"
@@ -170,33 +152,22 @@ const results = () => {
                 Aenean commodo ligula eget dolor.
               </Text>
             </Box>
-            <Box>
-              <Center color="cream" bg="burgundy" p={12} borderTopRadius="5px">
-                <Heading fontSize="6xl" fontWeight="black">
-                  What do you do if you're balding?
-                </Heading>
-              </Center>
-              <Box
+            <InformationCard />
+            <Box
+              backgroundSize="12px 12px"
+              backgroundImage="radial-gradient(blue 10%,transparent 0)"
+            >
+              <SimpleGrid
+                columns={2}
+                spacing={4}
                 p={8}
-                border="5px solid"
-                borderColor="burgundy"
-                borderBottomRadius="5px"
+                maxWidth="1200px"
+                m="0 auto"
               >
-                <Text fontSize="xl">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                  natoque penatibus et magnis dis parturient montes, nascetur
-                  ridiculus mus. Lorem ipsum dolor sit amet, consectetuer
-                  adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                  massa. Cum sociis natoque penatibus et magnis dis parturient
-                  montes, nascetur ridiculus mus.
-                </Text>
-              </Box>
+                <ProductCard title="Finastride" />
+                <ProductCard title="Minodoxil" />
+              </SimpleGrid>
             </Box>
-            <SimpleGrid columns={2} spacing={3}>
-              <ProductCard title="Finastride" />
-              <ProductCard title="Minodoxil" />
-            </SimpleGrid>
           </Stack>
         </Box>
       </ResultsContainer>

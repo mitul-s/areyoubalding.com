@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations"
+import StartButton from "@/components/StartButton";
 
 
 const MotionBox = motion.custom(Box);
@@ -68,20 +69,8 @@ export default function Home() {
               interactive quiz to find out if a future without hair is coming
               for you.
             </Text>
-            <NextLink href="/quiz">
-              <Button
-                color="cream"
-                bg="cherry"
-                fontSize="2xl"
-                textTransform="uppercase"
-                borderRadius={0}
-                width="max-content"
-                px={20}
-                py={8}
-              >
-                Start
-              </Button>
-            </NextLink>
+            
+              <StartButton />
           </Stack>
         </MotionBox>
       </Center>

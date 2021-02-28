@@ -13,11 +13,14 @@ import {
 } from "@chakra-ui/react";
 import Shell from "@/components/Shell";
 import ResultsLoader from "@/components/ResultsLoader";
-import CheckButton from "@/components/CheckButton";
+import SelectButton from "@/components/quiz/SelectButton";
 import { useRouter } from "next/router";
 
 import { useQuiz } from "@/lib/quiz";
 import questions from "@/lib/data";
+
+
+
 
 export default function quiz() {
   const router = useRouter();
@@ -36,16 +39,16 @@ export default function quiz() {
     <Shell>
       <Center flexDirection="column" flex="1">
         <Stack mb={8} spacing={4} textAlign="center">
-          <Heading fontSize="6xl" color="cherry" w="700px">
+          <Heading fontSize="3xl" color="royal">
             {questions[currentQuestion].question}
           </Heading>
           <Text fontSize="xl">{questions[currentQuestion].description}</Text>
         </Stack>
         <SimpleGrid spacing={3} columns={2} rows={2}>
-          {questions[currentQuestion].answers.map((x) => {
+          {questions[currentQuestion].answers.map((i) => {
             return (
-              <SelectButton key={x} onClick={() => handleClick(x.score)}>
-                {x.answer}
+              <SelectButton key={i} onClick={() => handleClick(i.score)}>
+                {i.answer}
               </SelectButton>
             );
           })}
@@ -54,15 +57,4 @@ export default function quiz() {
       {score}
     </Shell>
   );
-}
-
-
-
-
-const SelectButton = ({ children, ...rest }) => {
-  return (
-    <Center bg="cream" border="2px solid" borderColor="cherry" w="md" py={8} fontSize="3xl" sx={{ transition: "350ms all" }} _hover={{ transform: "translateY(-4px)", bg: "burgundy", color: "cream", borderColor: "burgundy" }}{...rest}>
-      {children}
-    </Center>
-  )
 }
