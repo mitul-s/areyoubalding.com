@@ -2,7 +2,7 @@ import { Box, Center, Heading, Text } from "@chakra-ui/react";
 
 export default function InformationCard() {
     return (
-        <Box maxW="1200px" m="0 auto">
+        <Box maxW="1200px" mx="auto !important">
           <Center color="cream" bg="cherry" p={12} borderTopRadius="5px">
             <Heading fontSize="6xl" fontWeight="black">
               What do you do if you're balding?
