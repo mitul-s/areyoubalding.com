@@ -34,16 +34,13 @@ export default function Home() {
     <Shell>
       <Center flexDirection="column" flex="1">
         <MotionBox variants={fadeInUp} textAlign="center">
-          <Stack spacing={8} w="879px" alignItems="center">
-            <Box>
+          <Box maxW="879px" alignItems="center">
+            <Box mb={0}>
               <Heading
-                sx={{
-                  
-                }}
                 fontSize="42px"
-                fontSize="2vw"
+                // fontSize="2vw"
                 // fontSize="7vw"
-                fontWeight="bold"
+                fontWeight="black"
                 fontStyle="normal"
                 letterSpacing="-1.37308px"
                 textTransform="uppercase"
@@ -64,14 +61,14 @@ export default function Home() {
                 Balding?
               </Heading>
             </Box>
-            <Text fontSize="2xl">
+            <Text fontSize={["md", null, "2xl"]} mb={8}>
               Answer a few questions about yourself through this short
               interactive quiz to find out if a future without hair is coming
               for you.
             </Text>
             
               <StartButton />
-          </Stack>
+          </Box>
         </MotionBox>
       </Center>
     </Shell>

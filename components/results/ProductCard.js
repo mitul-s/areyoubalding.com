@@ -1,6 +1,6 @@
 import { Stack, Box, Heading, Text, Image, Button } from "@chakra-ui/react"
 
-const ProductCard = ({ title }) => (
+const ProductCard = ({ title, description, img }) => (
 
     <Stack m="0 auto" bg="royal" color="cream" p={8} borderRadius="8px" spacing={4}>
       <Box>
@@ -10,12 +10,10 @@ const ProductCard = ({ title }) => (
         </Heading>
       </Box>
       <Text fontSize="lg">
-        This FDA approved daily tablet increases volume and health of hair in 3
-        to 6 months. It prevents testosterone from breaking down into DHT, a
-        hormone that damages hair follicles.
+        {description}
       </Text>
       <Box boxSize="xs" mx="auto !important">
-        <Image src="/media/imgs/gummies.webp" />
+        <Image src={img} />
       </Box>
       <Button color="royal" bg="cream">
         Get your pack

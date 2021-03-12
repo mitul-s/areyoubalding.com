@@ -6,7 +6,7 @@ const ResultsLoader = () => {
     <Shell loader={true}>
       <Center flex="1" w="full" textAlign="center">
         <Box>
-          <Spinner size="xl" />
+          <Spinner mb={3} size="xl" />
           <Heading>Counting your hairs...</Heading>
         </Box>
       </Center>

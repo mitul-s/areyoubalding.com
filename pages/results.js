@@ -10,6 +10,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import InformationCard from "@/components/results/InformationCard";
 import ProductCard from "@/components/results/ProductCard";
+import ReturnToStart from "@/components/results/ReturnToStart";
 
 
 const AnswerHero = ({ executeScroll }) => (
@@ -33,7 +34,7 @@ const AnswerHero = ({ executeScroll }) => (
         </Heading>
         <Text fontSize="3xl">
           but there’s still hope! You can take the right steps today to save as
-          much of your hair as possible. Keep scrolling to learn more.
+          much of your hair as possible.
         </Text>
       </Center>
       <Center h="10vh">
@@ -53,7 +54,6 @@ const AnswerHero = ({ executeScroll }) => (
 
 
 const ResultsContainer = ({ children }) => {
-  const { resetQuiz } = useQuiz();
   return (
     <Box
       display="flex"
@@ -66,13 +66,7 @@ const ResultsContainer = ({ children }) => {
       overflow="hidden"
     >
       {children}
-      <Flex alignItems="center" justifyContent="center" h="10vh">
-        <NextLink href="/">
-          <Button bg="ramen" color="cream" onClick={() => resetQuiz()}>
-            Return to start
-          </Button>
-        </NextLink>
-      </Flex>
+      <ReturnToStart />
     </Box>
   );
 };
@@ -158,14 +152,27 @@ const results = () => {
               backgroundImage="radial-gradient(blue 10%,transparent 0)"
             >
               <SimpleGrid
-                columns={2}
+                columns={3}
                 spacing={4}
-                p={8}
+                py={8}
                 maxWidth="1200px"
                 m="0 auto"
               >
-                <ProductCard title="Finastride" />
-                <ProductCard title="Minodoxil" />
+                <ProductCard
+                  title="Biotin Gummies"
+                  description="More hair...this is the pill for that. It treats male pattern baldness, at the crown and in the middle of the scalp. You’ll see thicker hair and slower hair loss with regular use."
+                  img="/media/imgs/gummies.webp"
+                />
+                <ProductCard
+                  title="Finasteride"
+                  description="More hair...this is the pill for that. It treats male pattern baldness, at the crown and in the middle of the scalp. You’ll see thicker hair and slower hair loss with regular use."
+                  img="/media/imgs/finasteride.webp"
+                />
+                <ProductCard
+                  title="Minoxidil"
+                  description="This topical solution, used once or twice a day, can put a stop to hair loss and may even help new hair growth. Hair today, hair tomorrow. Plenty of hair for grabbing, twirling and such."
+                  img="/media/imgs/minoxidil.webp"
+                />
               </SimpleGrid>
             </Box>
           </Stack>

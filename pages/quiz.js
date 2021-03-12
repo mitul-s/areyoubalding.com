@@ -24,7 +24,7 @@ import questions from "@/lib/data";
 
 export default function quiz() {
   const router = useRouter();
-  const { handleClick, end, score, currentQuestion, totalQuestions } = useQuiz();
+  const { handleClick, end, score, currentQuestion } = useQuiz();
 
   if (end) {
     setTimeout(function () {
@@ -54,7 +54,6 @@ export default function quiz() {
           })}
         </SimpleGrid>
       </Center>
-      {score}
     </Shell>
   );
 }

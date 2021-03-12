@@ -41,6 +41,9 @@ const Header = () => {
         color="cream"
         size="sm"
         icon={<Share weight="bold" />}
+        _hover={{
+          bg: "ramen",
+        }}
       />
     </Flex>
   );
@@ -71,7 +74,7 @@ const Shell = ({ loader, children }) => {
           <Box
             transition="350ms ease-in-out"
             sx={{
-              width: currentQuestion / totalQuestions,
+              width: currentQuestion / 10,
               height: "20px",
               bg: "ramen",
             }}

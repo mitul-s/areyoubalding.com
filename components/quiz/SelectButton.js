@@ -8,14 +8,14 @@ export default function SelectButton({ children, ...rest }) {
       color="cream"
       borderColor="cherry"
       w="sm"
-    //   py={8}
+      py={3}
       fontSize="3xl"
       sx={{ transition: "350ms all" }}
       _hover={{
-        transform: "translateY(-4px)",
+        // transform: "translateY(-4px)",
         bg: "royal",
         color: "cream",
-        borderColor: "burgundy",
+        borderColor: "royal",
       }}
       {...rest}
     >
