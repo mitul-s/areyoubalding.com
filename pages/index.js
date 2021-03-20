@@ -17,6 +17,7 @@ import {
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations"
 import StartButton from "@/components/StartButton";
+import styles from "@/styles/blobs.module.css";
 
 
 const MotionBox = motion.custom(Box);
@@ -32,7 +33,11 @@ export default function Home() {
 
   return (
     <Shell>
-      <Center flexDirection="column" flex="1">
+      <Box className={styles.shapeblob}></Box>
+      <Box className={`${styles.shapeblob} ${styles.one}`}></Box>
+      <Box className={`${styles.shapeblob} ${styles.two}`}></Box>
+      <Box className={`${styles.shapeblob} ${styles.three}`}></Box>
+      <Center flexDirection="column" flex="1" zIndex="4">
         <MotionBox variants={fadeInUp} textAlign="center">
           <Box maxW="879px" alignItems="center">
             <Box mb={0}>
@@ -66,8 +71,8 @@ export default function Home() {
               interactive quiz to find out if a future without hair is coming
               for you.
             </Text>
-            
-              <StartButton />
+
+            <StartButton />
           </Box>
         </MotionBox>
       </Center>

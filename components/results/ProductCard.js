@@ -1,12 +1,12 @@
 import { Stack, Box, Heading, Text, Image, Button } from "@chakra-ui/react"
 
-const ProductCard = ({ title, description, img }) => (
+const ProductCard = ({ title, description, rx, img }) => (
 
     <Stack m="0 auto" bg="royal" color="cream" p={8} borderRadius="8px" spacing={4}>
       <Box>
         <Heading>{title}</Heading>
         <Heading fontSize="3xs" color="whiteAlpha.800" fontWeight="500">
-          RX Certified
+          {rx ? "RX" : "Prescription Free"}
         </Heading>
       </Box>
       <Text fontSize="lg">
